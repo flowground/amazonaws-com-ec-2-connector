@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "EnableDnsHostnames": {
+                    "Value": false
+                },
+                "VpcId": "vpc-a01106c2"
+            },
+            "properties": {
+                "EnableDnsHostnames": {
+                    "description": "<p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.</p> <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.</p>",
+                    "properties": {
+                        "Value": {
+                            "description": "The attribute value. The valid values are <code>true</code> or <code>false</code>.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "EnableDnsSupport": {
+                    "description": "<p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range \"plus two\" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.</p> <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>",
+                    "properties": {
+                        "Value": {
+                            "description": "The attribute value. The valid values are <code>true</code> or <code>false</code>.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "VpcId": {
+                    "description": "The ID of the VPC.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VpcId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

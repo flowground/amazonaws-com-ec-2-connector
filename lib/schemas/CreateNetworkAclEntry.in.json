@@ -1,0 +1,129 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "CidrBlock": "0.0.0.0/0",
+                "Egress": false,
+                "NetworkAclId": "acl-5fb85d36",
+                "PortRange": {
+                    "From": 53,
+                    "To": 53
+                },
+                "Protocol": "17",
+                "RuleAction": "allow",
+                "RuleNumber": 100
+            },
+            "properties": {
+                "CidrBlock": {
+                    "description": "The IPv4 network range to allow or deny, in CIDR notation (for example <code>172.16.0.0/24</code>).",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "Egress": {
+                    "description": "Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).",
+                    "type": "boolean"
+                },
+                "IcmpTypeCode": {
+                    "description": "ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.",
+                    "properties": {
+                        "Code": {
+                            "description": "The ICMP code. A value of -1 means all codes for the specified ICMP type.",
+                            "type": "integer"
+                        },
+                        "Type": {
+                            "description": "The ICMP type. A value of -1 means all types.",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Ipv6CidrBlock": {
+                    "description": "The IPv6 network range to allow or deny, in CIDR notation (for example <code>2001:db8:1234:1a00::/64</code>).",
+                    "type": "string"
+                },
+                "NetworkAclId": {
+                    "description": "The ID of the network ACL.",
+                    "type": "string"
+                },
+                "PortRange": {
+                    "description": "TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).",
+                    "properties": {
+                        "From": {
+                            "description": "The first port in the range.",
+                            "type": "integer"
+                        },
+                        "To": {
+                            "description": "The last port in the range.",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Protocol": {
+                    "description": "The protocol number. A value of \"-1\" means all protocols. If you specify \"-1\" or a protocol number other than \"6\" (TCP), \"17\" (UDP), or \"1\" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol \"58\" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.",
+                    "type": "string"
+                },
+                "RuleAction": {
+                    "description": "Indicates whether to allow or deny the traffic that matches the rule.",
+                    "enum": [
+                        "allow",
+                        "deny"
+                    ],
+                    "type": "string"
+                },
+                "RuleNumber": {
+                    "description": "<p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p> <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "Egress",
+                "NetworkAclId",
+                "Protocol",
+                "RuleAction",
+                "RuleNumber"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

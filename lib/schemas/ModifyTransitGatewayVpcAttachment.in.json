@@ -1,0 +1,93 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AddSubnetIds": {
+                    "description": "The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "Options": {
+                    "description": "The new VPC attachment options.",
+                    "properties": {
+                        "DnsSupport": {
+                            "description": "Enable or disable DNS support. The default is <code>enable</code>.",
+                            "enum": [
+                                "enable",
+                                "disable"
+                            ],
+                            "type": "string"
+                        },
+                        "Ipv6Support": {
+                            "description": "Enable or disable IPv6 support. The default is <code>enable</code>.",
+                            "enum": [
+                                "enable",
+                                "disable"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "RemoveSubnetIds": {
+                    "description": "The IDs of one or more subnets to remove.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "TransitGatewayAttachmentId": {
+                    "description": "The ID of the attachment.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TransitGatewayAttachmentId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

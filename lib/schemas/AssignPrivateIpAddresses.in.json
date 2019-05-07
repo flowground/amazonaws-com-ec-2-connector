@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for AssignPrivateIpAddresses.",
+            "example": {
+                "NetworkInterfaceId": "eni-e5aa89a3",
+                "SecondaryPrivateIpAddressCount": 2
+            },
+            "properties": {
+                "AllowReassignment": {
+                    "description": "Indicates whether to allow an IP address that is already assigned to another network interface or instance to be reassigned to the specified network interface.",
+                    "type": "boolean"
+                },
+                "NetworkInterfaceId": {
+                    "description": "The ID of the network interface.",
+                    "type": "string"
+                },
+                "PrivateIpAddresses": {
+                    "description": "<p>One or more IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p> <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "SecondaryPrivateIpAddressCount": {
+                    "description": "The number of secondary IP addresses to assign to the network interface. You can't specify this parameter when also specifying private IP addresses.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "NetworkInterfaceId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,163 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for ModifyImageAttribute.",
+            "example": {
+                "ImageId": "ami-5731123e",
+                "LaunchPermission": {
+                    "Add": [
+                        {
+                            "UserId": "123456789012"
+                        }
+                    ]
+                }
+            },
+            "properties": {
+                "Attribute": {
+                    "description": "The name of the attribute to modify. The valid values are <code>description</code>, <code>launchPermission</code>, and <code>productCodes</code>.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A new description for the AMI.",
+                    "properties": {
+                        "Value": {
+                            "description": "The attribute value. The value is case-sensitive.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "ImageId": {
+                    "description": "The ID of the AMI.",
+                    "type": "string"
+                },
+                "LaunchPermission": {
+                    "description": "A new launch permission for the AMI.",
+                    "properties": {
+                        "Add": {
+                            "description": "The AWS account ID to add to the list of launch permissions for the AMI.",
+                            "items": {
+                                "description": "Describes a launch permission.",
+                                "properties": {
+                                    "Group": {
+                                        "description": "The name of the group.",
+                                        "enum": [
+                                            "all"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "UserId": {
+                                        "description": "The AWS account ID.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "Remove": {
+                            "description": "The AWS account ID to remove from the list of launch permissions for the AMI.",
+                            "items": {
+                                "description": "Describes a launch permission.",
+                                "properties": {
+                                    "Group": {
+                                        "description": "The name of the group.",
+                                        "enum": [
+                                            "all"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "UserId": {
+                                        "description": "The AWS account ID.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "OperationType": {
+                    "description": "The operation type. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.",
+                    "enum": [
+                        "add",
+                        "remove"
+                    ],
+                    "type": "string"
+                },
+                "ProductCodes": {
+                    "description": "One or more DevPay product codes. After you add a product code to an AMI, it can't be removed.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "UserGroups": {
+                    "description": "One or more user groups. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "UserIds": {
+                    "description": "One or more AWS account IDs. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Value": {
+                    "description": "The value of the attribute being modified. This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>productCodes</code>.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ImageId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

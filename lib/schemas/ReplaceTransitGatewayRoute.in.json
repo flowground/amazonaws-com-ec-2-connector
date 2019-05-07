@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Blackhole": {
+                    "description": "Indicates whether traffic matching this route is to be dropped.",
+                    "type": "boolean"
+                },
+                "DestinationCidrBlock": {
+                    "description": "The CIDR range used for the destination match. Routing decisions are based on the most specific match.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "TransitGatewayAttachmentId": {
+                    "description": "The ID of the attachment.",
+                    "type": "string"
+                },
+                "TransitGatewayRouteTableId": {
+                    "description": "The ID of the route table.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "DestinationCidrBlock",
+                "TransitGatewayRouteTableId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

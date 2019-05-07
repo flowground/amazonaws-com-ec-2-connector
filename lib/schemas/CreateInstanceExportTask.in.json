@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for CreateInstanceExportTask.",
+            "properties": {
+                "Description": {
+                    "description": "A description for the conversion task or the resource being exported. The maximum length is 255 bytes.",
+                    "type": "string"
+                },
+                "ExportToS3Task": {
+                    "description": "The format and location for an instance export task.",
+                    "properties": {
+                        "ContainerFormat": {
+                            "description": "The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is exported.",
+                            "enum": [
+                                "ova"
+                            ],
+                            "type": "string"
+                        },
+                        "DiskImageFormat": {
+                            "description": "The format for the exported image.",
+                            "enum": [
+                                "VMDK",
+                                "RAW",
+                                "VHD"
+                            ],
+                            "type": "string"
+                        },
+                        "S3Bucket": {
+                            "description": "The S3 bucket for the destination image. The destination bucket must exist and grant WRITE and READ_ACP permissions to the AWS account <code>vm-import-export@amazon.com</code>.",
+                            "type": "string"
+                        },
+                        "S3Prefix": {
+                            "description": "The image is written to a single object in the S3 bucket at the S3 key s3prefix + exportTaskId + '.' + diskImageFormat.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "InstanceId": {
+                    "description": "The ID of the instance.",
+                    "type": "string"
+                },
+                "TargetEnvironment": {
+                    "description": "The target virtualization environment.",
+                    "enum": [
+                        "citrix",
+                        "vmware",
+                        "microsoft"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "InstanceId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

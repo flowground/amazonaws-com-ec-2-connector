@@ -1,0 +1,152 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Attribute": {
+                    "description": "The name of the attribute.",
+                    "enum": [
+                        "description",
+                        "name",
+                        "loadPermission",
+                        "productCodes"
+                    ],
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A description for the AFI.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "FpgaImageId": {
+                    "description": "The ID of the AFI.",
+                    "type": "string"
+                },
+                "LoadPermission": {
+                    "description": "The load permission for the AFI.",
+                    "properties": {
+                        "Add": {
+                            "description": "The load permissions to add.",
+                            "items": {
+                                "description": "Describes a load permission.",
+                                "properties": {
+                                    "Group": {
+                                        "description": "The name of the group.",
+                                        "enum": [
+                                            "all"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "UserId": {
+                                        "description": "The AWS account ID.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "Remove": {
+                            "description": "The load permissions to remove.",
+                            "items": {
+                                "description": "Describes a load permission.",
+                                "properties": {
+                                    "Group": {
+                                        "description": "The name of the group.",
+                                        "enum": [
+                                            "all"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "UserId": {
+                                        "description": "The AWS account ID.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Name": {
+                    "description": "A name for the AFI.",
+                    "type": "string"
+                },
+                "OperationType": {
+                    "description": "The operation type.",
+                    "enum": [
+                        "add",
+                        "remove"
+                    ],
+                    "type": "string"
+                },
+                "ProductCodes": {
+                    "description": "One or more product codes. After you add a product code to an AFI, it can't be removed. This parameter is valid only when modifying the <code>productCodes</code> attribute.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "UserGroups": {
+                    "description": "One or more user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "UserIds": {
+                    "description": "One or more AWS account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "FpgaImageId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

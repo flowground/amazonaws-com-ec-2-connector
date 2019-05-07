@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for ModifyVpcEndpoint.",
+            "properties": {
+                "AddRouteTableIds": {
+                    "description": "(Gateway endpoint) One or more route tables IDs to associate with the endpoint.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AddSecurityGroupIds": {
+                    "description": "(Interface endpoint) One or more security group IDs to associate with the network interface.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "AddSubnetIds": {
+                    "description": "(Interface endpoint) One or more subnet IDs in which to serve the endpoint.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "PolicyDocument": {
+                    "description": "A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.",
+                    "type": "string"
+                },
+                "PrivateDnsEnabled": {
+                    "description": "(Interface endpoint) Indicate whether a private hosted zone is associated with the VPC.",
+                    "type": "boolean"
+                },
+                "RemoveRouteTableIds": {
+                    "description": "(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "RemoveSecurityGroupIds": {
+                    "description": "(Interface endpoint) One or more security group IDs to disassociate from the network interface.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "RemoveSubnetIds": {
+                    "description": "(Interface endpoint) One or more subnets IDs in which to remove the endpoint.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ResetPolicy": {
+                    "description": "(Gateway endpoint) Specify <code>true</code> to reset the policy document to the default policy. The default policy allows full access to the service.",
+                    "type": "boolean"
+                },
+                "VpcEndpointId": {
+                    "description": "The ID of the endpoint.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VpcEndpointId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

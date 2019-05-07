@@ -1,0 +1,100 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ClientVpnEndpointId": {
+                    "description": "The ID of the Client VPN endpoint to modify.",
+                    "type": "string"
+                },
+                "ConnectionLogOptions": {
+                    "description": "<p>Information about the client connection logging options.</p> <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p> <ul> <li> <p>Client connection requests</p> </li> <li> <p>Client connection results (successful and unsuccessful)</p> </li> <li> <p>Reasons for unsuccessful client connection requests</p> </li> <li> <p>Client connection termination time</p> </li> </ul>",
+                    "properties": {
+                        "CloudwatchLogGroup": {
+                            "description": "The name of the CloudWatch Logs log group.",
+                            "type": "string"
+                        },
+                        "CloudwatchLogStream": {
+                            "description": "The name of the CloudWatch Logs log stream to which the connection data is published.",
+                            "type": "string"
+                        },
+                        "Enabled": {
+                            "description": "Indicates whether connection logging is enabled.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Description": {
+                    "description": "A brief description of the Client VPN endpoint.",
+                    "type": "string"
+                },
+                "DnsServers": {
+                    "description": "Information about the DNS servers to be used by Client VPN connections. A Client VPN endpoint can have up to two DNS servers.",
+                    "properties": {
+                        "CustomDnsServers": {
+                            "description": "The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values overwrite the existing values.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Enabled": {
+                            "description": "Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS servers.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "ServerCertificateArn": {
+                    "description": "The ARN of the server certificate to be used. The server certificate must be provisioned in AWS Certificate Manager (ACM).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClientVpnEndpointId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

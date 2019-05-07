@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for CreateCustomerGateway.",
+            "example": {
+                "BgpAsn": 65534,
+                "PublicIp": "12.1.2.3",
+                "Type": "ipsec.1"
+            },
+            "properties": {
+                "BgpAsn": {
+                    "description": "<p>For devices that support BGP, the customer gateway's BGP ASN.</p> <p>Default: 65000</p>",
+                    "type": "integer"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "PublicIp": {
+                    "description": "The Internet-routable IP address for the customer gateway's outside interface. The address must be static.",
+                    "type": "string"
+                },
+                "Type": {
+                    "description": "The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).",
+                    "enum": [
+                        "ipsec.1"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "BgpAsn",
+                "PublicIp",
+                "Type"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

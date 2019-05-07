@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for BundleInstance.",
+            "properties": {
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "InstanceId": {
+                    "description": "<p>The ID of the instance to bundle.</p> <p>Type: String</p> <p>Default: None</p> <p>Required: Yes</p>",
+                    "type": "string"
+                },
+                "Storage": {
+                    "description": "The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.",
+                    "properties": {
+                        "S3": {
+                            "description": "An Amazon S3 storage location.",
+                            "properties": {
+                                "AWSAccessKeyId": {
+                                    "description": "The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance in <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html\">Best Practices for Managing AWS Access Keys</a>.",
+                                    "type": "string"
+                                },
+                                "Bucket": {
+                                    "description": "The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.",
+                                    "type": "string"
+                                },
+                                "Prefix": {
+                                    "description": "The beginning of the file name of the AMI.",
+                                    "type": "string"
+                                },
+                                "UploadPolicy": {
+                                    "description": "An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.",
+                                    "type": "string"
+                                },
+                                "UploadPolicySignature": {
+                                    "description": "The signature of the JSON document.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "InstanceId",
+                "Storage"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

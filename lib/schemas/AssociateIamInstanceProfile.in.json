@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "IamInstanceProfile": {
+                    "Name": "admin-role"
+                },
+                "InstanceId": "i-123456789abcde123"
+            },
+            "properties": {
+                "IamInstanceProfile": {
+                    "description": "The IAM instance profile.",
+                    "properties": {
+                        "Arn": {
+                            "description": "The Amazon Resource Name (ARN) of the instance profile.",
+                            "type": "string"
+                        },
+                        "Name": {
+                            "description": "The name of the instance profile.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "InstanceId": {
+                    "description": "The ID of the instance.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "IamInstanceProfile",
+                "InstanceId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

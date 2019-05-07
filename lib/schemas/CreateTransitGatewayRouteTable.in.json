@@ -1,0 +1,119 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "TagSpecifications": {
+                    "description": "The tags to apply to the transit gateway route table.",
+                    "items": {
+                        "description": "The tags to apply to a resource when the resource is being created.",
+                        "properties": {
+                            "ResourceType": {
+                                "description": "The type of resource to tag. Currently, the resource types that support tagging on creation are <code>fleet</code>, <code>dedicated-host</code>, <code>instance</code>, <code>snapshot</code>, and <code>volume</code>. To tag a resource after it has been created, see <a>CreateTags</a>.",
+                                "enum": [
+                                    "client-vpn-endpoint",
+                                    "customer-gateway",
+                                    "dedicated-host",
+                                    "dhcp-options",
+                                    "elastic-ip",
+                                    "fleet",
+                                    "fpga-image",
+                                    "image",
+                                    "instance",
+                                    "internet-gateway",
+                                    "launch-template",
+                                    "natgateway",
+                                    "network-acl",
+                                    "network-interface",
+                                    "reserved-instances",
+                                    "route-table",
+                                    "security-group",
+                                    "snapshot",
+                                    "spot-instances-request",
+                                    "subnet",
+                                    "transit-gateway",
+                                    "transit-gateway-attachment",
+                                    "transit-gateway-route-table",
+                                    "volume",
+                                    "vpc",
+                                    "vpc-peering-connection",
+                                    "vpn-connection",
+                                    "vpn-gateway"
+                                ],
+                                "type": "string"
+                            },
+                            "Tags": {
+                                "description": "The tags to apply to the resource.",
+                                "items": {
+                                    "description": "Describes a tag.",
+                                    "properties": {
+                                        "Key": {
+                                            "description": "<p>The key of the tag.</p> <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with <code>aws:</code>.</p>",
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "description": "<p>The value of the tag.</p> <p>Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.</p>",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TransitGatewayId": {
+                    "description": "The ID of the transit gateway.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "TransitGatewayId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

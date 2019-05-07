@@ -1,0 +1,205 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AuthenticationOptions": {
+                    "description": "Information about the authentication method to be used to authenticate clients.",
+                    "items": {
+                        "description": "Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <a href=\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.",
+                        "properties": {
+                            "ActiveDirectory": {
+                                "description": "Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.",
+                                "properties": {
+                                    "DirectoryId": {
+                                        "description": "The ID of the Active Directory to be used for authentication.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "MutualAuthentication": {
+                                "description": "Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.",
+                                "properties": {
+                                    "ClientRootCertificateChainArn": {
+                                        "description": "The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM).",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "Type": {
+                                "description": "The type of client authentication to be used. Specify <code>certificate-authentication</code> to use certificate-based authentication, or <code>directory-service-authentication</code> to use Active Directory authentication.",
+                                "enum": [
+                                    "certificate-authentication",
+                                    "directory-service-authentication"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ClientCidrBlock": {
+                    "description": "The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.",
+                    "type": "string"
+                },
+                "ClientToken": {
+                    "description": "Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\"> How to Ensure Idempotency</a>.",
+                    "type": "string"
+                },
+                "ConnectionLogOptions": {
+                    "description": "<p>Information about the client connection logging options.</p> <p>If you enable client connection logging, data about client connections is sent to a Cloudwatch Logs log stream. The following information is logged:</p> <ul> <li> <p>Client connection requests</p> </li> <li> <p>Client connection results (successful and unsuccessful)</p> </li> <li> <p>Reasons for unsuccessful client connection requests</p> </li> <li> <p>Client connection termination time</p> </li> </ul>",
+                    "properties": {
+                        "CloudwatchLogGroup": {
+                            "description": "The name of the CloudWatch Logs log group.",
+                            "type": "string"
+                        },
+                        "CloudwatchLogStream": {
+                            "description": "The name of the CloudWatch Logs log stream to which the connection data is published.",
+                            "type": "string"
+                        },
+                        "Enabled": {
+                            "description": "Indicates whether connection logging is enabled.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Description": {
+                    "description": "A brief description of the Client VPN endpoint.",
+                    "type": "string"
+                },
+                "DnsServers": {
+                    "description": "Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "ServerCertificateArn": {
+                    "description": "The ARN of the server certificate. For more information, see the <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/\">AWS Certificate Manager User Guide</a>.",
+                    "type": "string"
+                },
+                "TagSpecifications": {
+                    "description": "The tags to apply to the Client VPN endpoint during creation.",
+                    "items": {
+                        "description": "The tags to apply to a resource when the resource is being created.",
+                        "properties": {
+                            "ResourceType": {
+                                "description": "The type of resource to tag. Currently, the resource types that support tagging on creation are <code>fleet</code>, <code>dedicated-host</code>, <code>instance</code>, <code>snapshot</code>, and <code>volume</code>. To tag a resource after it has been created, see <a>CreateTags</a>.",
+                                "enum": [
+                                    "client-vpn-endpoint",
+                                    "customer-gateway",
+                                    "dedicated-host",
+                                    "dhcp-options",
+                                    "elastic-ip",
+                                    "fleet",
+                                    "fpga-image",
+                                    "image",
+                                    "instance",
+                                    "internet-gateway",
+                                    "launch-template",
+                                    "natgateway",
+                                    "network-acl",
+                                    "network-interface",
+                                    "reserved-instances",
+                                    "route-table",
+                                    "security-group",
+                                    "snapshot",
+                                    "spot-instances-request",
+                                    "subnet",
+                                    "transit-gateway",
+                                    "transit-gateway-attachment",
+                                    "transit-gateway-route-table",
+                                    "volume",
+                                    "vpc",
+                                    "vpc-peering-connection",
+                                    "vpn-connection",
+                                    "vpn-gateway"
+                                ],
+                                "type": "string"
+                            },
+                            "Tags": {
+                                "description": "The tags to apply to the resource.",
+                                "items": {
+                                    "description": "Describes a tag.",
+                                    "properties": {
+                                        "Key": {
+                                            "description": "<p>The key of the tag.</p> <p>Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with <code>aws:</code>.</p>",
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "description": "<p>The value of the tag.</p> <p>Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.</p>",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TransportProtocol": {
+                    "description": "<p>The transport protocol to be used by the VPN session.</p> <p>Default value: <code>udp</code> </p>",
+                    "enum": [
+                        "tcp",
+                        "udp"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClientCidrBlock",
+                "ServerCertificateArn",
+                "AuthenticationOptions",
+                "ConnectionLogOptions"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

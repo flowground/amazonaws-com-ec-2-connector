@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AccessGroupId": {
+                    "description": "The ID of the Active Directory group to grant access.",
+                    "type": "string"
+                },
+                "AuthorizeAllGroups": {
+                    "description": "Indicates whether to grant access to all clients. Use <code>true</code> to grant all clients who successfully establish a VPN connection access to the network.",
+                    "type": "boolean"
+                },
+                "ClientVpnEndpointId": {
+                    "description": "The ID of the Client VPN endpoint.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A brief description of the authorization rule.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "TargetNetworkCidr": {
+                    "description": "The IPv4 address range, in CIDR notation, of the network for which access is being authorized.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClientVpnEndpointId",
+                "TargetNetworkCidr"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

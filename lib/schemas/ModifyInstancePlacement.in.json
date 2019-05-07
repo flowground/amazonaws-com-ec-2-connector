@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Affinity": {
+                    "description": "The affinity setting for the instance.",
+                    "enum": [
+                        "default",
+                        "host"
+                    ],
+                    "type": "string"
+                },
+                "GroupName": {
+                    "description": "<p>The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of <code>default</code>. For cluster and partition placement groups, the instance must have a tenancy of <code>default</code> or <code>dedicated</code>.</p> <p>To remove an instance from a placement group, specify an empty string (\"\").</p>",
+                    "type": "string"
+                },
+                "HostId": {
+                    "description": "The ID of the Dedicated Host with which to associate the instance.",
+                    "type": "string"
+                },
+                "InstanceId": {
+                    "description": "The ID of the instance that you are modifying.",
+                    "type": "string"
+                },
+                "PartitionNumber": {
+                    "description": "Reserved for future use.",
+                    "type": "integer"
+                },
+                "Tenancy": {
+                    "description": "The tenancy for the instance.",
+                    "enum": [
+                        "dedicated",
+                        "host"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "InstanceId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

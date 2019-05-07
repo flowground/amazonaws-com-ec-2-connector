@@ -1,0 +1,105 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for ImportVolume.",
+            "properties": {
+                "AvailabilityZone": {
+                    "description": "The Availability Zone for the resulting EBS volume.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A description of the volume.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "Image": {
+                    "description": "The disk image.",
+                    "properties": {
+                        "Bytes": {
+                            "description": "The size of the disk image, in GiB.",
+                            "type": "integer"
+                        },
+                        "Format": {
+                            "description": "The disk image format.",
+                            "enum": [
+                                "VMDK",
+                                "RAW",
+                                "VHD"
+                            ],
+                            "type": "string"
+                        },
+                        "ImportManifestUrl": {
+                            "description": "<p>A presigned URL for the import manifest stored in Amazon S3 and presented here as an Amazon S3 presigned URL. For information about creating a presigned URL for an Amazon S3 object, read the \"Query String Request Authentication Alternative\" section of the <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html\">Authenticating REST Requests</a> topic in the <i>Amazon Simple Storage Service Developer Guide</i>.</p> <p>For information about the import manifest referenced by this API action, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html\">VM Import Manifest</a>.</p>",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Bytes",
+                        "Format",
+                        "ImportManifestUrl"
+                    ],
+                    "type": "object"
+                },
+                "Volume": {
+                    "description": "The volume size.",
+                    "properties": {
+                        "Size": {
+                            "description": "The size of the volume, in GiB.",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "Size"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "AvailabilityZone",
+                "Image",
+                "Volume"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

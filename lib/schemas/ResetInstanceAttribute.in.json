@@ -1,0 +1,82 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "Attribute": "sourceDestCheck",
+                "InstanceId": "i-1234567890abcdef0"
+            },
+            "properties": {
+                "Attribute": {
+                    "description": "<p>The attribute to reset.</p> <important> <p>You can only reset the following attributes: <code>kernel</code> | <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance attribute, use <a>ModifyInstanceAttribute</a>.</p> </important>",
+                    "enum": [
+                        "instanceType",
+                        "kernel",
+                        "ramdisk",
+                        "userData",
+                        "disableApiTermination",
+                        "instanceInitiatedShutdownBehavior",
+                        "rootDeviceName",
+                        "blockDeviceMapping",
+                        "productCodes",
+                        "sourceDestCheck",
+                        "groupSet",
+                        "ebsOptimized",
+                        "sriovNetSupport",
+                        "enaSupport"
+                    ],
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "InstanceId": {
+                    "description": "The ID of the instance.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Attribute",
+                "InstanceId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for DescribeSpotFleetRequestHistory.",
+            "example": {
+                "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+                "StartTime": "2015-05-26T00:00:00Z"
+            },
+            "properties": {
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "EventType": {
+                    "description": "The type of events to describe. By default, all events are described.",
+                    "enum": [
+                        "instanceChange",
+                        "fleetRequestChange",
+                        "error"
+                    ],
+                    "type": "string"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of results to return in a single call. Specify a value between 1 and 1000. The default value is 1000. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.",
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The token for the next set of results.",
+                    "type": "string"
+                },
+                "SpotFleetRequestId": {
+                    "description": "The ID of the Spot Fleet request.",
+                    "type": "string"
+                },
+                "StartTime": {
+                    "description": "The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SpotFleetRequestId",
+                "StartTime"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,121 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for CreateNetworkInterface.",
+            "example": {
+                "Description": "my network interface",
+                "Groups": [
+                    "sg-903004f8"
+                ],
+                "PrivateIpAddress": "10.0.2.17",
+                "SubnetId": "subnet-9d4a7b6c"
+            },
+            "properties": {
+                "Description": {
+                    "description": "A description for the network interface.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "Groups": {
+                    "description": "The IDs of one or more security groups.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "Ipv6AddressCount": {
+                    "description": "The number of IPv6 addresses to assign to a network interface. Amazon EC2 automatically selects the IPv6 addresses from the subnet range. You can't use this option if specifying specific IPv6 addresses. If your subnet has the <code>AssignIpv6AddressOnCreation</code> attribute set to <code>true</code>, you can specify <code>0</code> to override this setting.",
+                    "type": "integer"
+                },
+                "Ipv6Addresses": {
+                    "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.",
+                    "items": {
+                        "description": "Describes an IPv6 address.",
+                        "properties": {
+                            "Ipv6Address": {
+                                "description": "The IPv6 address.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "PrivateIpAddress": {
+                    "description": "The primary private IPv4 address of the network interface. If you don't specify an IPv4 address, Amazon EC2 selects one for you from the subnet's IPv4 CIDR range. If you specify an IP address, you cannot indicate any IP addresses specified in <code>privateIpAddresses</code> as primary (only one IP address can be designated as primary).",
+                    "type": "string"
+                },
+                "PrivateIpAddresses": {
+                    "description": "One or more private IPv4 addresses.",
+                    "items": {
+                        "description": "Describes a secondary private IPv4 address for a network interface.",
+                        "properties": {
+                            "Primary": {
+                                "description": "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.",
+                                "type": "boolean"
+                            },
+                            "PrivateIpAddress": {
+                                "description": "The private IPv4 addresses.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "SecondaryPrivateIpAddressCount": {
+                    "description": "<p>The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using <code>privateIpAddresses</code>.</p> <p>The number of IP addresses you can assign to a network interface varies by instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI\">IP Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>",
+                    "type": "integer"
+                },
+                "SubnetId": {
+                    "description": "The ID of the subnet to associate with the network interface.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SubnetId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

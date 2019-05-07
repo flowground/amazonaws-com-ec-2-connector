@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for AttachVolume.",
+            "example": {
+                "Device": "/dev/sdf",
+                "InstanceId": "i-01474ef662b89480",
+                "VolumeId": "vol-1234567890abcdef0"
+            },
+            "properties": {
+                "Device": {
+                    "description": "The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "InstanceId": {
+                    "description": "The ID of the instance.",
+                    "type": "string"
+                },
+                "VolumeId": {
+                    "description": "The ID of the EBS volume. The volume and instance must be within the same Availability Zone.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Device",
+                "InstanceId",
+                "VolumeId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

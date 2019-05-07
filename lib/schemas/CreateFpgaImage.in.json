@@ -1,0 +1,93 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ClientToken": {
+                    "description": "Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.",
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A description for the AFI.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "InputStorageLocation": {
+                    "description": "The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.",
+                    "properties": {
+                        "Bucket": {
+                            "description": "The name of the S3 bucket.",
+                            "type": "string"
+                        },
+                        "Key": {
+                            "description": "The key.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "LogsStorageLocation": {
+                    "description": "The location in Amazon S3 for the output logs.",
+                    "properties": {
+                        "Bucket": {
+                            "description": "The name of the S3 bucket.",
+                            "type": "string"
+                        },
+                        "Key": {
+                            "description": "The key.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Name": {
+                    "description": "A name for the AFI.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "InputStorageLocation"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for PurchaseReservedInstancesOffering.",
+            "properties": {
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "InstanceCount": {
+                    "description": "The number of Reserved Instances to purchase.",
+                    "type": "integer"
+                },
+                "LimitPrice": {
+                    "description": "Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.",
+                    "properties": {
+                        "Amount": {
+                            "description": "Used for Reserved Instance Marketplace offerings. Specifies the limit price on the total order (instanceCount * price).",
+                            "format": "double",
+                            "type": "number"
+                        },
+                        "CurrencyCode": {
+                            "description": "The currency in which the <code>limitPrice</code> amount is specified. At this time, the only supported currency is <code>USD</code>.",
+                            "enum": [
+                                "USD"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ReservedInstancesOfferingId": {
+                    "description": "The ID of the Reserved Instance offering to purchase.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "InstanceCount",
+                "ReservedInstancesOfferingId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

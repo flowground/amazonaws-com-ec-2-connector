@@ -1,0 +1,144 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for ModifySnapshotAttribute.",
+            "example": {
+                "Attribute": "createVolumePermission",
+                "GroupNames": [
+                    "all"
+                ],
+                "OperationType": "add",
+                "SnapshotId": "snap-1234567890abcdef0"
+            },
+            "properties": {
+                "Attribute": {
+                    "description": "The snapshot attribute to modify. Only volume creation permissions can be modified.",
+                    "enum": [
+                        "productCodes",
+                        "createVolumePermission"
+                    ],
+                    "type": "string"
+                },
+                "CreateVolumePermission": {
+                    "description": "A JSON representation of the snapshot attribute modification.",
+                    "properties": {
+                        "Add": {
+                            "description": "Adds the specified AWS account ID or group to the list.",
+                            "items": {
+                                "description": "Describes the user or group to be added or removed from the list of create volume permissions for a volume.",
+                                "properties": {
+                                    "Group": {
+                                        "description": "The group to be added or removed. The possible value is <code>all</code>.",
+                                        "enum": [
+                                            "all"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "UserId": {
+                                        "description": "The AWS account ID to be added or removed.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "Remove": {
+                            "description": "Removes the specified AWS account ID or group from the list.",
+                            "items": {
+                                "description": "Describes the user or group to be added or removed from the list of create volume permissions for a volume.",
+                                "properties": {
+                                    "Group": {
+                                        "description": "The group to be added or removed. The possible value is <code>all</code>.",
+                                        "enum": [
+                                            "all"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "UserId": {
+                                        "description": "The AWS account ID to be added or removed.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "GroupNames": {
+                    "description": "The group to modify for the snapshot.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "OperationType": {
+                    "description": "The type of operation to perform to the attribute.",
+                    "enum": [
+                        "add",
+                        "remove"
+                    ],
+                    "type": "string"
+                },
+                "SnapshotId": {
+                    "description": "The ID of the snapshot.",
+                    "type": "string"
+                },
+                "UserIds": {
+                    "description": "The account ID to modify for the snapshot.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "SnapshotId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for PurchaseScheduledInstances.",
+            "example": {
+                "PurchaseRequests": [
+                    {
+                        "InstanceCount": 1,
+                        "PurchaseToken": "eyJ2IjoiMSIsInMiOjEsImMiOi..."
+                    }
+                ]
+            },
+            "properties": {
+                "ClientToken": {
+                    "description": "Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "PurchaseRequests": {
+                    "description": "One or more purchase requests.",
+                    "items": {
+                        "description": "Describes a request to purchase Scheduled Instances.",
+                        "properties": {
+                            "InstanceCount": {
+                                "description": "The number of instances.",
+                                "type": "integer"
+                            },
+                            "PurchaseToken": {
+                                "description": "The purchase token.",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "InstanceCount",
+                            "PurchaseToken"
+                        ],
+                        "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "PurchaseRequests"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

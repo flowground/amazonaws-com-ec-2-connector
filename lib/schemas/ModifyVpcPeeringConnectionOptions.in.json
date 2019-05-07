@@ -1,0 +1,93 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AccepterPeeringConnectionOptions": {
+                    "description": "The VPC peering connection options for the accepter VPC.",
+                    "properties": {
+                        "AllowDnsResolutionFromRemoteVpc": {
+                            "description": "If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.",
+                            "type": "boolean"
+                        },
+                        "AllowEgressFromLocalClassicLinkToRemoteVpc": {
+                            "description": "If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.",
+                            "type": "boolean"
+                        },
+                        "AllowEgressFromLocalVpcToRemoteClassicLink": {
+                            "description": "If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "RequesterPeeringConnectionOptions": {
+                    "description": "The VPC peering connection options for the requester VPC.",
+                    "properties": {
+                        "AllowDnsResolutionFromRemoteVpc": {
+                            "description": "If true, enables a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.",
+                            "type": "boolean"
+                        },
+                        "AllowEgressFromLocalClassicLinkToRemoteVpc": {
+                            "description": "If true, enables outbound communication from an EC2-Classic instance that's linked to a local VPC using ClassicLink to instances in a peer VPC.",
+                            "type": "boolean"
+                        },
+                        "AllowEgressFromLocalVpcToRemoteClassicLink": {
+                            "description": "If true, enables outbound communication from instances in a local VPC to an EC2-Classic instance that's linked to a peer VPC using ClassicLink.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "VpcPeeringConnectionId": {
+                    "description": "The ID of the VPC peering connection.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "VpcPeeringConnectionId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

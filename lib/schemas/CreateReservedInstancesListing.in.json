@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for CreateReservedInstancesListing.",
+            "properties": {
+                "ClientToken": {
+                    "description": "Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This helps avoid duplicate listings. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.",
+                    "type": "string"
+                },
+                "InstanceCount": {
+                    "description": "The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.",
+                    "type": "integer"
+                },
+                "PriceSchedules": {
+                    "description": "A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.",
+                    "items": {
+                        "description": "Describes the price for a Reserved Instance.",
+                        "properties": {
+                            "CurrencyCode": {
+                                "description": "The currency for transacting the Reserved Instance resale. At this time, the only supported currency is <code>USD</code>.",
+                                "enum": [
+                                    "USD"
+                                ],
+                                "type": "string"
+                            },
+                            "Price": {
+                                "description": "The fixed price for the term.",
+                                "format": "double",
+                                "type": "number"
+                            },
+                            "Term": {
+                                "description": "The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ReservedInstancesId": {
+                    "description": "The ID of the active Standard Reserved Instance.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ClientToken",
+                "InstanceCount",
+                "PriceSchedules",
+                "ReservedInstancesId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

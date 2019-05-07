@@ -1,0 +1,105 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for ModifyNetworkInterfaceAttribute.",
+            "example": {
+                "NetworkInterfaceId": "eni-686ea200",
+                "SourceDestCheck": {
+                    "Value": false
+                }
+            },
+            "properties": {
+                "Attachment": {
+                    "description": "Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.",
+                    "properties": {
+                        "AttachmentId": {
+                            "description": "The ID of the network interface attachment.",
+                            "type": "string"
+                        },
+                        "DeleteOnTermination": {
+                            "description": "Indicates whether the network interface is deleted when the instance is terminated.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Description": {
+                    "description": "A description for the network interface.",
+                    "properties": {
+                        "Value": {
+                            "description": "The attribute value. The value is case-sensitive.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "Groups": {
+                    "description": "Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "NetworkInterfaceId": {
+                    "description": "The ID of the network interface.",
+                    "type": "string"
+                },
+                "SourceDestCheck": {
+                    "description": "Indicates whether source/destination checking is enabled. A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled. This value must be <code>false</code> for a NAT instance to perform NAT. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html\">NAT Instances</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.",
+                    "properties": {
+                        "Value": {
+                            "description": "The attribute value. The valid values are <code>true</code> or <code>false</code>.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "NetworkInterfaceId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

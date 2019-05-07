@@ -1,0 +1,98 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "example": {
+                "DestinationCidrBlock": "10.0.0.0/16",
+                "GatewayId": "vgw-9a4cacf3",
+                "RouteTableId": "rtb-22574640"
+            },
+            "properties": {
+                "DestinationCidrBlock": {
+                    "description": "The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.",
+                    "type": "string"
+                },
+                "DestinationIpv6CidrBlock": {
+                    "description": "The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.",
+                    "type": "string"
+                },
+                "DryRun": {
+                    "description": "Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.",
+                    "type": "boolean"
+                },
+                "EgressOnlyInternetGatewayId": {
+                    "description": "[IPv6 traffic only] The ID of an egress-only internet gateway.",
+                    "type": "string"
+                },
+                "GatewayId": {
+                    "description": "The ID of an internet gateway or virtual private gateway.",
+                    "type": "string"
+                },
+                "InstanceId": {
+                    "description": "The ID of a NAT instance in your VPC.",
+                    "type": "string"
+                },
+                "NatGatewayId": {
+                    "description": "[IPv4 traffic only] The ID of a NAT gateway.",
+                    "type": "string"
+                },
+                "NetworkInterfaceId": {
+                    "description": "The ID of a network interface.",
+                    "type": "string"
+                },
+                "RouteTableId": {
+                    "description": "The ID of the route table.",
+                    "type": "string"
+                },
+                "TransitGatewayId": {
+                    "description": "The ID of a transit gateway.",
+                    "type": "string"
+                },
+                "VpcPeeringConnectionId": {
+                    "description": "The ID of a VPC peering connection.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "RouteTableId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

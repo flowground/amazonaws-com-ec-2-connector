@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Contains the parameters for UnassignPrivateIpAddresses.",
+            "example": {
+                "NetworkInterfaceId": "eni-e5aa89a3",
+                "PrivateIpAddresses": [
+                    "10.0.0.82"
+                ]
+            },
+            "properties": {
+                "NetworkInterfaceId": {
+                    "description": "The ID of the network interface.",
+                    "type": "string"
+                },
+                "PrivateIpAddresses": {
+                    "description": "The secondary private IP addresses to unassign from the network interface. You can specify this option multiple times to unassign more than one IP address.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "NetworkInterfaceId",
+                "PrivateIpAddresses"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
